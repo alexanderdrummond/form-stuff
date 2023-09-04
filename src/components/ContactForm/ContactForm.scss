@@ -1,0 +1,132 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-box {
+    width: 500px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .field-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px auto;
+  }
+  
+  .field-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .input-field,
+  button,
+  select {
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+  
+    &:focus {
+      border-color: #007bff;
+    }
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+  
+  .error-box {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  .success-container {
+    background: linear-gradient(to right, #00b09b, #96c93d);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+  }
+  
+  .success-header {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  .success-content {
+    font-size: 1.1em;
+  
+    ul {
+      list-style: none;
+      padding-left: 0;
+  
+      li {
+        padding: 5px;
+      }
+    }
+  }
+  
+  .go-back-button {
+    background-color: #00b09b;
+    color: #ffff;
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  
+    &:hover {
+      background-color: #009b89;
+      color: white;
+    }
+  }
+  
+  .lottie-container {
+    width: 100px;  
+    height: 100px;
+    display: flex;
+  }
+
+  
+  .fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .intermediate-lottie-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+  }
+  
