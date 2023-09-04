@@ -25,13 +25,14 @@ const ContactForm = () => {
     }, 2500);
   };
 
-  const applyTestData = () => {
-    setValue("fullName", "Test Name");
-    setValue("phoneNumber", "71 90 75 48");
-    setValue("email", "test@email.com");
-    setValue("comment", "Test Comment");
-    setValue("contactMethod", "email");
-  };
+//   const applyTestData = () => {
+//     setValue("fullName", "Test Name");
+//     setValue("phoneNumber", "71907548");
+//     setValue("email", "test@email.com");
+//     setValue("dateOfExperience", "2023-01-01");
+//     setValue("comment", "Test Comment");
+//     setValue("contactMethod", "email");
+//   };
 
   const goBackToForm = () => {
     setFormSubmitted(false);
@@ -42,6 +43,8 @@ const ContactForm = () => {
   const onReset = () => {
     reset();
   };
+
+  // lottie anims start
 
   useEffect(() => {
     let anim;
@@ -66,6 +69,8 @@ const ContactForm = () => {
     return () => anim && anim.destroy();
   }, [showIntermediateAnimation, formSubmitted]);
 
+  // lottie anims end
+  
   return (
     <div className="container">
       <div ref={intermediateAnimationContainer} className={`intermediate-lottie-container ${showIntermediateAnimation ? 'fade-in' : 'fade-out'}`}></div>
@@ -79,6 +84,7 @@ const ContactForm = () => {
                   <li><strong>Full Name:</strong> {formData.fullName}</li>
                   <li><strong>Phone:</strong> {formData.phoneNumber}</li>
                   <li><strong>Email:</strong> {formData.email}</li>
+                  <li><strong>Date of Experience:</strong> {formData.dateOfExperience}</li>
                   <li><strong>Comment:</strong> {formData.comment}</li>
                   <li><strong>Contact Method:</strong> {formData.contactMethod}</li>
                 </ul>
@@ -91,17 +97,16 @@ const ContactForm = () => {
           <input
             {...register('fullName', {
                 required: 'This field is required',
-                validate: value => value.includes('kasper') ? 'Oh no... not you again.' : true
+                validate: value => value.includes('kasper') ? 'Oh no... not you again.' : true //sorry
               })}
             className="input-field"
           />
           {errors.fullName && <div className="error-box">{errors.fullName.message}</div>}
 
           <label className="field-label">Phone Number</label>
-          <input
+          <input type="number"
             {...register('phoneNumber', {
               required: 'This field is required',
-              pattern: { value: /^(\d{2}[-.\s]?){3}\d{2}$/, message: 'Invalid phone number' },
             })}
             className="input-field"
           />
@@ -115,6 +120,14 @@ const ContactForm = () => {
           />
           {errors.email && <div className="error-box">{errors.email.message}</div>}
 
+          <label className="field-label">Date of Experience</label>
+            <input
+              type="date"
+              {...register('dateOfExperience', { required: 'This field is required' })}
+              className="input-field"
+            />
+            {errors.dateOfExperience && <div className="error-box">{errors.dateOfExperience.message}</div>}
+
           <label className="field-label">Comment</label>
           <textarea
             {...register('comment', { required: 'This field is required', maxLength: { value: 400, message: 'Comment is too long' } })}
@@ -125,16 +138,20 @@ const ContactForm = () => {
           ></textarea>
           {errors.comment && <div className="error-box">{errors.comment.message}</div>}
 
+          
+
           <label className="field-label">How should we contact you?</label>
           <select {...register('contactMethod', { required: 'This field is required' })} className="input-field">
             <option value="email">Email</option>
             <option value="phone">Phone</option>
+
           </select>
           {errors.contactMethod && <div className="error-box">{errors.contactMethod.message}</div>}
 
+
           <button type="submit">Send</button>
           <button type="button" onClick={onReset}>Reset</button>
-          <button type="button" onClick={applyTestData}>Apply Test Data</button>
+          {/* <button type="button" onClick={applyTestData}>Apply Test Data</button> */}
         </form>
         )}
       </div>
